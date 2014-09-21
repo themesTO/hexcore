@@ -14,7 +14,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'hexcore' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'hexcore' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'hexcore' ), 'hexcore', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			<?php printf( __( 'Theme: %1$s by %2$s.', 'hexcore' ), 'hexcore', '<a href="http://themes.to/" rel="designer">themes.TO</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
