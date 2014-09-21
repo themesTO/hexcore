@@ -133,3 +133,42 @@ require get_template_directory() . '/inc/jetpack.php';
  * Enable shortcodes in widgets
  */
 add_filter( 'widget_text', 'do_shortcode' );
+
+/**
+ * Excerpt Length
+ */
+function custom_excerpt_length( $length ) {
+  return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+/**
+ * Excerpt String
+ */
+function new_excerpt_more( $more ) {
+  return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+/**
+ * Display featured image in the post list view
+ */
+add_filter('manage_posts_columns', 'featured_image_add_column');
+add_filter('manage_pages_columns', 'featured_image_add_column');
+
+function featured_image_add_column($columns) 
+{
+  $columns['featured_image'] = 'Image';
+  return $columns;
+}
+
+add_action('manage_posts_custom_column', 'featured_image_render_post_columns', 10, 2);
+
+function featured_image_render_post_columns($column_name, $id) 
+{
+  if($column_name == 'featured_image')
+  {
+    $thumb = get_the_post_thumbnail( $id, array(50,50) );
+    if($thumb) { echo $thumb; }
+  }
+}
